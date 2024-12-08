@@ -14,12 +14,12 @@ public class Section implements Comparable<Section>, Serializable {
 	private ArrayList<DayOfWeek> classDays;
 	private Instructor inst;
 	private String courseNum;
-	private TimeRange range;
+	private TimeOfDay range;
 	private Student[] students;
 	private Textbook[] books;
 	private Classroom room;
 
-	public Section(String crn, Course course, ArrayList<DayOfWeek> classDays, Instructor inst, TimeRange range, Textbook[] books, Classroom room) {
+	public Section(String crn, Course course, ArrayList<DayOfWeek> classDays, Instructor inst, TimeOfDay range, Textbook[] books, Classroom room) {
 		this.crn = crn;
 		this.course = course;
 		this.classDays = classDays;
@@ -85,11 +85,11 @@ public class Section implements Comparable<Section>, Serializable {
 		this.courseNum = courseNum;
 	}
 
-	public TimeRange getRange() {
+	public TimeOfDay getRange() {
 		return range;
 	}
 
-	public void setRange(TimeRange range) {
+	public void setRange(TimeOfDay range) {
 		this.range = range;
 	}
 

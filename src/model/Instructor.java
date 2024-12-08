@@ -8,14 +8,13 @@ public class Instructor implements Serializable, Comparable<Instructor>{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private Section[] sectionsTaught;
+	private Section[] sections;
 	private DateOfEmployment hireDate;
-	private double credits;
 	private Name name;
 	private String id;
 	private Section[] prefSection;
 	private DayOfWeek[] prefDOW;
-	private TimeRange[] prefTime;
+	private TimeOfDay[] prefTime;
 	private double prefCredits;
 	private double curCredits;
 
@@ -27,7 +26,9 @@ public class Instructor implements Serializable, Comparable<Instructor>{
 	}
 
 
-
+	public DateOfEmployment getHireDate() {
+		return hireDate;
+	}
 	@Override
 	public int compareTo(Instructor o) {
 		// TODO Auto-generated method stub
