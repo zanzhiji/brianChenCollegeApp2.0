@@ -51,7 +51,7 @@ public class CollegeApp extends Application {
 		});
 		
 		Button btn2 = new Button("Manage Sections");
-		btn1.setOnMouseClicked(e -> {
+		btn2.setOnMouseClicked(e -> {
 			Stage sections = new Stage();
 			SectionView sv = new SectionView(dc, secCon, sections);
 			Scene secScene = new Scene(sv.getMainView());
