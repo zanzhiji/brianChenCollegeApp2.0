@@ -31,7 +31,7 @@ public class Instructor implements Serializable, Comparable<Instructor>{
 	@Override
 	public int compareTo(Instructor o) {
 		// TODO Auto-generated method stub
-		//
+		// negative number means more senior
 		return this.hireDate.compareTo(o.hireDate);
 	}
 }
