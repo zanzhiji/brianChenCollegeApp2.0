@@ -17,10 +17,19 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import model.CourseContainer;
+import model.DataCenter;
+import model.SectionContainer;
+
 public class CollegeApp extends Application {
 
 	@Override
 	public void start(Stage stage) throws Exception {
+		
+		DataCenter dc = DataCenter.getInstance();
+		CourseContainer couCon = dc.getCouCon();
+		SectionContainer secCon = dc.getSecCon();
+		
 		// TODO Auto-generated method stub
 		BorderPane root = new BorderPane();
 		root.setPrefSize(1080, 800);
@@ -31,11 +40,32 @@ public class CollegeApp extends Application {
 		ta2.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 		TextArea ta3 = new TextArea("Placeholder");
 		ta3.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+		
 		Button btn1 = new Button("Manage Courses");
+		btn1.setOnMouseClicked(e -> {
+			Stage courses = new Stage();
+			CourseView cv = new CourseView(dc, couCon, courses);
+			Scene couScene = new Scene(cv.getMainView());
+			courses.setScene(couScene);
+			courses.show();
+		});
+		
 		Button btn2 = new Button("Manage Sections");
+		btn1.setOnMouseClicked(e -> {
+			Stage sections = new Stage();
+			SectionView sv = new SectionView(dc, secCon, sections);
+			Scene secScene = new Scene(sv.getMainView());
+			sections.setScene(secScene);
+			sections.show();
+		});
 		Button btn3 = new Button("Manage Instructors");
 		Button btn4 = new Button("Generate Schedule");
+		
 		Button btn5 = new Button("Exit");
+		btn5.setOnMouseReleased(e ->{
+			 dc.saveData();
+			 stage.close();
+		});
 
 		VBox vb1 = new VBox();
 		VBox.setMargin(btn1, new Insets(15));
