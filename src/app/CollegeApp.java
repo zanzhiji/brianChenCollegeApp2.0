@@ -25,6 +25,7 @@ import javafx.stage.Stage;
 
 import model.CourseContainer;
 import model.DataCenter;
+import model.InstructorContainer;
 import model.SectionContainer;
 import util.ViewHelper;
 
@@ -39,6 +40,7 @@ public class CollegeApp extends Application {
 		DataCenter dc = DataCenter.getInstance();
 		CourseContainer couCon = dc.getCouCon();
 		SectionContainer secCon = dc.getSecCon();
+		InstructorContainer inCon = dc.getInCon();
 		
 		stage.setTitle("College App");
 		showMainView();
@@ -63,9 +65,13 @@ public class CollegeApp extends Application {
 	
 	public static void showInstructorScene() throws IOException {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(CollegeApp.class.getResource("/gui/InstructorView.fxml"));
+		loader.setLocation(CollegeApp.class.getResource("/gui/instructor/InstructorView.fxml"));
 		BorderPane instView = loader.load();
 		mainLayout.setCenter(instView);
+	}
+	
+	public static void showAddInst() {
+		
 	}
 	
 

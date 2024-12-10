@@ -19,6 +19,7 @@ public class DataCenter implements Serializable{
 	private CourseContainer couCon;
 	private SectionContainer secCon;
 	private TextbookContainer texCon;
+	private InstructorContainer inCon;
 
 	private static DataCenter instance = null; 
 	
@@ -27,6 +28,7 @@ public class DataCenter implements Serializable{
 		couCon = new CourseContainer();
 		secCon = new SectionContainer();
 		texCon = new TextbookContainer(3);
+		inCon = new InstructorContainer();
 	}
 	
 	public static DataCenter getInstance() {
@@ -98,6 +100,10 @@ public class DataCenter implements Serializable{
 
 	public void setTexCon(TextbookContainer texCon) {
 		this.texCon = texCon;
+	}
+	
+	public InstructorContainer getInCon() {
+		return inCon;
 	}
 	
 }
